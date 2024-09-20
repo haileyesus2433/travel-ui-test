@@ -16,11 +16,11 @@ const data = [
 ];
 
 export default function TravelSalesChart() {
-  const formatCurrency = (value) => {
+  const formatCurrency = (value: number) => {
     return `₦${value.toLocaleString()}`;
   };
 
-  const CustomTooltip = ({ active, payload }) => {
+  const CustomTooltip = ({ active, payload }: { active: boolean; payload: { value: number }[] }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-4 rounded shadow-lg">
@@ -35,10 +35,7 @@ export default function TravelSalesChart() {
     }
     return null;
   };
-
-  const thisWeekTotal = data.reduce((sum, item) => sum + item.thisWeek, 0);
-  const prevWeekTotal = data.reduce((sum, item) => sum + item.previousWeek, 0);
-  const difference = thisWeekTotal - prevWeekTotal;
+ 
 
   return (
     <section className="py-8 px-4 md:px-8 bg-gray-100">
@@ -54,7 +51,7 @@ export default function TravelSalesChart() {
               >
                 <XAxis dataKey="day" />
                 <YAxis tickFormatter={(va) => formatCurrency(va)} />
-                <Tooltip content={<CustomTooltip />} />
+                <Tooltip content={<CustomTooltip active={true} payload={[]} />} />
                 <Bar dataKey="previousWeek" fill="#844AF9" />
                 <Bar dataKey="thisWeek" fill="#FFA500" />
                 <Bar dataKey="difference" fill="#2970F8" />
