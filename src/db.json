@@ -1,0 +1,14 @@
+{
+  "flights": [
+    { "departure": "2023-12-25", "destination": "New York", "price": 200 },
+    { "departure": "2024-01-10", "destination": "London", "price": 350 }
+  ],
+  "hotels": [
+    { "name": "Grand Hotel", "location": "Paris", "rating": 4.5, "price": 150 },
+    { "name": "The Ritz", "location": "London", "rating": 5, "price": 250 }
+  ],
+  "ancillaries": [
+    { "service": "Insurance", "price": 50 },
+    { "service": "Seat Upgrade", "price": 30 }
+  ]
+}
